@@ -1,0 +1,95 @@
+<header class="showcase">
+    <div class="lang">
+        <app-language-switcher></app-language-switcher>
+    </div>
+    <div class="content">
+      <div class="title">
+        {{username}} {{ 'WELCOME_MESSAGE' | translate}}
+      </div>
+      <div class="text">
+        
+      </div>
+    </div>
+</header>
+
+  <section class="services">
+    <div class="btn-section">
+        <button class="btn first" (click)="startGame()">{{buttonText}}</button>
+    </div>
+    <div id="game" *ngIf="gameIsStarted">
+        <app-game></app-game>
+    </div>
+    <div id="kitty" *ngIf="!gameIsStarted">
+        <app-kitty></app-kitty>
+    </div>
+  </section>
+
+  <footer class="footer-section">
+    <div class="container">
+        <div class="footer-cta pt-5 pb-5">
+            <div class="row">
+                <div class="ilb">
+                    <div class="single-cta">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="cta-text">
+                            <h4>Find us</h4>
+                            <span>Praceta Dr. António Sotero de Oliveira, 16 , Figueira da Foz, Portugal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ilb">
+                    <div class="single-cta">
+                        <i class="fas fa-globe"></i>
+                        <div class="cta-text">
+                            <h4>Visit us</h4>
+                            <span>future-balloons.eu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ilb">
+                    <div class="single-cta">
+                        <i class="far fa-envelope-open"></i>
+                        <div class="cta-text">
+                            <h4>Mail us</h4>
+                            <span>future.balloons@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content pt-5 pb-5">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 mb-50">
+                    <div class="footer-widget">
+                        <div class="footer-logo ilb">
+                            <img src="assets/ballons.png" alt="Future Balloons">
+                        </div>
+                        <div class="footer-text ilb">
+                            <p>
+                                We are a small consultancy company, working in the areas of ICT, Education, Training and Culture. Specifically we support our clients and partners in the development and implementation of projects, based in innovation and technology. Check our service portfolio and our projects.
+                            </p>
+                        </div>
+                        <div class="footer-social-icon ilb">
+                            <span>Follow us</span>
+                            <a href="https://www.facebook.com/FutureBalloons/"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                            <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                            <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="copyright-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                    <div class="copyright-text">
+                        <p>Copyright &copy; 2024, Designed by Yeva Trofimova</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

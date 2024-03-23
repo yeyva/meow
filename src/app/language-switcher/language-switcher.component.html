@@ -1,0 +1,20 @@
+<!-- <div class="text"><span>{{ 'NAME_MESSAGE' | translate }}</span></div> -->
+<button mat-button [matMenuTriggerFor]="languageMenu">
+    <div class="langTitle">
+        {{ language }}
+    </div>
+</button>
+<mat-menu #languageMenu="matMenu" [hasBackdrop]="false">
+    <button mat-menu-item (click)="switchLanguage('en')">
+        <img src="assets/uk_flag.png" alt="English">
+    </button>
+    <button mat-menu-item (click)="switchLanguage('de')">
+        <img src="assets/germany_flag.png" alt="Germany">
+    </button>
+    <button mat-menu-item (click)="switchLanguage('es')">
+        <img src="assets/spain_flag.png" alt="Spain">
+    </button>
+    <button mat-menu-item (click)="switchLanguage('pt')">
+        <img src="assets/portugal_flag.png" alt="Portugal">
+    </button>
+</mat-menu>
