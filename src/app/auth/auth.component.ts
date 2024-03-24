@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -14,8 +15,11 @@ export class AuthComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
+    public dialogRef: MatDialogRef<AuthComponent>
   ) {}
+
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -26,6 +30,7 @@ export class AuthComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
+      this.dialogRef!.close({ event: 'login-success'});
       const { username, password } = this.loginForm.value;
       console.log('Username:', username);
       this.authService.login(username, password).subscribe({
