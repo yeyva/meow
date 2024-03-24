@@ -16,16 +16,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from "@angular/material/dialog";
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthComponent } from './auth/auth.component';
 import { authGuard } from './guards/auth.guard';
 import { RegistrationComponent } from './registration/registration.component';
+import { BaseComponent } from './base/base.component';
 
 const routes: Routes = [
   { path: 'game', component: LayoutComponent, canActivate: [authGuard] },
-  { path: 'login', component: AuthComponent },
-  { path: '', component: AuthComponent },
+  { path: '', component: BaseComponent },
   { path: 'registration', component: RegistrationComponent },
 ];
 
@@ -37,7 +38,8 @@ const routes: Routes = [
     KittyComponent,
     LanguageSwitcherComponent,
     AuthComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    BaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ const routes: Routes = [
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,8 @@ export class RegistrationComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public dialogRef: MatDialogRef<RegistrationComponent>
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class RegistrationComponent {
 
   onSubmit(): void {
     if (this.registrationForm.valid) {
+      this.dialogRef!.close({ event: 'login-success'});
       const { username, password, repassword } = this.registrationForm.value;
       if (password !== repassword) {
         console.error('Passwords do not match');
